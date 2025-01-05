@@ -1,0 +1,85 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2820
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Sign up\
+\
+curl -X POST http://127.0.0.1:5000/auth/signup -H "Content-Type: application/json" -d '\{"email": "john@example.com", "password": "securepassword", "name": "John"\}'\
+\
+Login\
+\
+curl -X POST http://127.0.0.1:5000/auth/login -H "Content-Type: application/json" -d '\{"email": "john@example.com", "password": "securepassword"\}'\
+\
+User interactions\
+\
+curl -X POST http://127.0.0.1:5000/interaction/add_interaction \\\
+-H "Content-Type: application/json" \\\
+-d '\{\
+  "email": "user@example.com",\
+  "Action": 1,\
+  "Adventure": 0,\
+  "Animation": 1,\
+  "Children": 0,\
+  "Comedy": 1,\
+  "Crime": 0,\
+  "Documentary": 1,\
+  "Drama": 0,\
+  "Fantasy": 0,\
+  "Film-Noir": 0,\
+  "Horror": 0,\
+  "Musical": 1,\
+  "Mystery": 1,\
+  "Romance": 1,\
+  "Sci-Fi": 0,\
+  "Thriller": 1,\
+  "War": 0,\
+  "Western": 1\
+\}'\
+\
+\
+Get movies from db\
+\
+curl -X GET http://127.0.0.1:5000/movies/get_movies\
+\
+User profiles\
+\
+curl -X GET "http://127.0.0.1:5000/profile/get_user_profile?email=user@example.com"\
+\
+\
+Feedback\
+\
+curl -X POST http://127.0.0.1:5000/feedback/submit_feedback -H "Content-Type: application/json" -d '\{"email": "john@example.com", "title": "balboa", "rating": 3\}'\
+\
+Prediction\
+\
+curl -X POST http://127.0.0.1:5000/api/predict \\\
+-H "Content-Type: application/json" \\\
+-d '\{\
+  "email": "example@example.com",\
+  "age": 25,\
+  "gender": 1,\
+  "Action": 0,\
+  "Adventure": 1,\
+  "Animation": 0,\
+  "Children": 0,\
+  "Comedy": 1,\
+  "Crime": 0,\
+  "Documentary": 0,\
+  "Drama": 1,\
+  "Fantasy": 0,\
+  "Film-Noir": 0,\
+  "Horror": 0,\
+  "Musical": 0,\
+  "Mystery": 0,\
+  "Romance": 1,\
+  "Sci-Fi": 0,\
+  "Thriller": 1,\
+  "War": 0,\
+  "Western": 0\
+\}'\
+\
+\
+}
